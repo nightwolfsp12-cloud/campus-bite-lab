@@ -83,45 +83,47 @@ export default function FeaturesSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ 
                 duration: 0.6,
                 delay: index * 0.1,
                 ease: [0.4, 0, 0.2, 1]
               }}
               whileHover={{ 
-                y: -10,
+                y: -15,
+                scale: 1.05,
                 transition: { duration: 0.3, ease: "easeInOut" }
               }}
+              className="will-change-transform"
             >
-              <Card className="glass-card p-6 h-full hover:border-white/40 transition-all duration-500 group">
+              <Card className="glass-card p-8 h-full hover:border-white/60 hover:shadow-2xl transition-all duration-500 group border-2 border-white/20 bg-white/5 backdrop-blur-xl">
                 <motion.div
-                  className={`w-12 h-12 rounded-xl bg-gradient-to-r from-primary/20 to-secondary/20 flex items-center justify-center mb-4 group-hover:scale-110`}
-                  transition={{ duration: 0.3 }}
+                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center mb-6 group-hover:scale-125 shadow-lg`}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
                 >
-                  <feature.icon className={`h-6 w-6 ${feature.color}`} />
+                  <feature.icon className={`h-8 w-8 ${feature.color} drop-shadow-sm`} strokeWidth={2.5} />
                 </motion.div>
                 
-                <h3 className="text-lg font-semibold mb-3 text-white">
+                <h3 className="text-xl font-bold mb-4 text-white tracking-tight leading-tight">
                   {feature.title}
                 </h3>
                 
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-base text-white/80 leading-relaxed font-medium">
                   {feature.description}
                 </p>
                 
-                {/* Animated bottom border */}
+                {/* Enhanced animated bottom border */}
                 <motion.div
-                  className="h-1 bg-gradient-secondary rounded-full mt-4 transform scale-x-0 origin-left"
+                  className="h-1.5 bg-gradient-secondary rounded-full mt-6 transform scale-x-0 origin-left shadow-sm"
                   whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: index * 0.1 + 0.5 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 1, delay: index * 0.1 + 0.5, ease: "easeOut" }}
                 />
               </Card>
             </motion.div>

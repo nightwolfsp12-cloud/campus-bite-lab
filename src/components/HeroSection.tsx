@@ -117,7 +117,7 @@ export default function HeroSection({ onStudentClick, onAdminClick }: HeroSectio
               className="bg-primary hover:bg-primary-glow text-primary-foreground btn-interactive pulse-glow text-lg px-8 py-6 rounded-2xl"
             >
               <Smartphone className="mr-2 h-6 w-6" />
-              Student App
+              🎓 Student Portal
             </Button>
             <Button
               variant="outline"
@@ -126,7 +126,7 @@ export default function HeroSection({ onStudentClick, onAdminClick }: HeroSectio
               className="border-2 border-white/30 text-white hover:bg-white/10 btn-interactive text-lg px-8 py-6 rounded-2xl backdrop-blur-sm"
             >
               <Users className="mr-2 h-6 w-6" />
-              Admin Dashboard
+              👨‍💼 Admin Portal
             </Button>
           </motion.div>
 
