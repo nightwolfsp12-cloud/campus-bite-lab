@@ -222,7 +222,7 @@ export default function StudentDashboard() {
                             <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                             <span className="text-sm font-medium">{item.rating}</span>
                           </div>
-                          <span className="text-xl font-bold text-primary">
+                          <span className="text-xl font-bold text-black">
                             ₹{item.price}
                           </span>
                         </div>
@@ -370,7 +370,7 @@ export default function StudentDashboard() {
                 <div className="border-t border-white/20 pt-4">
                   <div className="flex items-center justify-between text-xl font-bold">
                     <span>Total</span>
-                    <span className="text-primary">₹{(selectedItem.price * quantity)}</span>
+                    <span className="text-black">₹{(selectedItem.price * quantity)}</span>
                   </div>
                 </div>
 
@@ -452,7 +452,7 @@ export default function StudentDashboard() {
                     <Wallet className="w-6 h-6 text-primary" />
                     <div>
                       <div className="font-medium">Campus Wallet</div>
-                      <div className="text-sm text-muted-foreground">Balance: ₹2,450</div>
+                      <div className="text-sm text-muted-foreground">Balance: <span className="text-black font-semibold">₹2,450</span></div>
                     </div>
                   </div>
                   <input type="radio" name="payment" defaultChecked className="text-primary" />
@@ -474,15 +474,15 @@ export default function StudentDashboard() {
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
                     <span>Subtotal</span>
-                    <span>₹{selectedItem ? (selectedItem.price * quantity) : '0'}</span>
+                    <span className="text-black font-semibold">₹{selectedItem ? (selectedItem.price * quantity) : '0'}</span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span>Service Fee</span>
-                    <span>₹10</span>
+                    <span className="text-black font-semibold">₹10</span>
                   </div>
                   <div className="flex justify-between text-lg font-bold border-t border-white/20 pt-2">
                     <span>Total</span>
-                    <span className="text-primary">
+                    <span className="text-black font-bold">
                       ₹{selectedItem ? (selectedItem.price * quantity + 10) : '10'}
                     </span>
                   </div>

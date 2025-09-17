@@ -122,7 +122,7 @@ export default function AdminDashboard() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-sm text-muted-foreground">{stat.title}</p>
-                        <p className="text-2xl font-bold">{stat.value}</p>
+                        <p className="text-2xl font-bold text-black">{stat.value}</p>
                       </div>
                       <stat.icon className={`h-8 w-8 ${stat.color}`} />
                     </div>
@@ -152,7 +152,7 @@ export default function AdminDashboard() {
                       <div className="text-sm text-muted-foreground">{order.customer} • {order.items}</div>
                     </div>
                     <div className="text-right">
-                      <div className="font-bold">₹{order.total}</div>
+                      <div className="font-bold text-black">₹{order.total}</div>
                       <Badge className={`text-xs ${getStatusColor(order.status)}`}>
                         {order.status}
                       </Badge>
@@ -212,7 +212,7 @@ export default function AdminDashboard() {
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="font-bold text-xl text-primary">₹{order.total}</div>
+                        <div className="font-bold text-xl text-black">₹{order.total}</div>
                         <Badge className={`${getStatusColor(order.status)}`}>
                           {order.status}
                         </Badge>
@@ -316,7 +316,7 @@ export default function AdminDashboard() {
                       <div className="text-sm text-muted-foreground">{item.sales} orders</div>
                     </div>
                     <div className="text-right">
-                      <div className="font-bold text-primary">₹{item.revenue}</div>
+                      <div className="font-bold text-black">₹{item.revenue}</div>
                       <Badge className="text-xs bg-success/20 text-success">
                         #{index + 1}
                       </Badge>
@@ -397,7 +397,7 @@ export default function AdminDashboard() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-xl font-bold text-primary mb-2">₹{item.price}</div>
+                      <div className="text-xl font-bold text-black mb-2">₹{item.price}</div>
                       <Button size="sm" variant="outline" className="border-white/30 hover:bg-white/10">
                         <Edit className="w-4 h-4" />
                       </Button>
