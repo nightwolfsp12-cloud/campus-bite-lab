@@ -90,8 +90,8 @@ export default function AdminDashboard() {
       case 'pending': return 'bg-warning text-warning-foreground';
       case 'preparing': return 'bg-accent text-accent-foreground';
       case 'ready': return 'bg-success text-success-foreground';
-      case 'completed': return 'bg-muted text-muted-foreground';
-      default: return 'bg-muted text-muted-foreground';
+      case 'completed': return 'bg-slate-600 text-white';
+      default: return 'bg-slate-600 text-white';
     }
   };
 
@@ -121,7 +121,7 @@ export default function AdminDashboard() {
                   <Card className="glass-card p-4">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm text-muted-foreground">{stat.title}</p>
+                        <p className="text-sm text-gray-300">{stat.title}</p>
                         <p className="text-2xl font-bold text-black">{stat.value}</p>
                       </div>
                       <stat.icon className={`h-8 w-8 ${stat.color}`} />
@@ -149,7 +149,7 @@ export default function AdminDashboard() {
                   <div key={order.id} className="flex items-center justify-between p-3 rounded-lg border border-white/20">
                     <div>
                       <div className="font-medium">{order.id}</div>
-                      <div className="text-sm text-muted-foreground">{order.customer} • {order.items}</div>
+                      <div className="text-sm text-gray-300">{order.customer} • {order.items}</div>
                     </div>
                     <div className="text-right">
                       <div className="font-bold text-black">₹{order.total}</div>
@@ -207,7 +207,7 @@ export default function AdminDashboard() {
                     <div className="flex items-center justify-between mb-3">
                       <div>
                         <div className="font-bold text-lg">{order.id}</div>
-                        <div className="text-sm text-muted-foreground">
+                        <div className="text-sm text-gray-300">
                           {order.customer} • {order.time}
                         </div>
                       </div>
@@ -313,7 +313,7 @@ export default function AdminDashboard() {
                   <div key={item.name} className="flex items-center justify-between p-3 rounded-lg border border-white/20">
                     <div>
                       <div className="font-medium">{item.name}</div>
-                      <div className="text-sm text-muted-foreground">{item.sales} orders</div>
+                      <div className="text-sm text-gray-300">{item.sales} orders</div>
                     </div>
                     <div className="text-right">
                       <div className="font-bold text-black">₹{item.revenue}</div>
@@ -391,7 +391,7 @@ export default function AdminDashboard() {
                           </Badge>
                         )}
                       </div>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                      <div className="flex items-center gap-4 text-sm text-gray-300">
                         <span>Category: {item.category}</span>
                         <span>Stock: {item.stock}</span>
                       </div>

@@ -96,7 +96,7 @@ export default function HeroSection({ onStudentClick, onAdminClick }: HeroSectio
           </motion.h1>
 
           <motion.p
-            className="text-xl text-muted-foreground max-w-2xl"
+            className="text-xl text-gray-300 max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -139,15 +139,15 @@ export default function HeroSection({ onStudentClick, onAdminClick }: HeroSectio
           >
             <div className="text-center">
               <div className="text-3xl font-bold gradient-text">2.5x</div>
-              <div className="text-sm text-muted-foreground">Faster Orders</div>
+              <div className="text-sm text-gray-300">Faster Orders</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold gradient-text">95%</div>
-              <div className="text-sm text-muted-foreground">Happy Students</div>
+              <div className="text-sm text-gray-300">Happy Students</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold gradient-text">30min</div>
-              <div className="text-sm text-muted-foreground">Avg Wait Time</div>
+              <div className="text-sm text-gray-300">Avg Wait Time</div>
             </div>
           </motion.div>
         </motion.div>

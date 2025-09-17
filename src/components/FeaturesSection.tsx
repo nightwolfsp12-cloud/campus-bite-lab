@@ -78,7 +78,7 @@ export default function FeaturesSection() {
             <br />
             <span className="text-white">For Campus Dining</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Comprehensive food ordering platform designed specifically for student life
           </p>
         </motion.div>

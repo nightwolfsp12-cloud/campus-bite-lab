@@ -164,7 +164,7 @@ export default function StudentDashboard() {
           >
             <div className="text-center space-y-4 mb-8">
               <h2 className="text-3xl font-bold gradient-text">Today's Menu</h2>
-              <p className="text-muted-foreground">Fresh vegetarian meals made daily</p>
+              <p className="text-gray-300">Fresh vegetarian meals made daily</p>
               
               {/* Today's Specials Banner */}
               <motion.div
@@ -178,7 +178,7 @@ export default function StudentDashboard() {
                     <span className="text-lg">🍽️</span>
                     <div>
                       <div className="font-medium">Special Dish: Dal Makhani Thali</div>
-                      <div className="text-muted-foreground">Chef's signature recipe</div>
+                      <div className="text-gray-300">Chef's signature recipe</div>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
@@ -214,7 +214,7 @@ export default function StudentDashboard() {
                             </Badge>
                           )}
                         </div>
-                        <p className="text-sm text-muted-foreground mb-2">
+                        <p className="text-sm text-gray-300 mb-2">
                           {item.description}
                         </p>
                         <div className="flex items-center justify-between">
@@ -263,7 +263,7 @@ export default function StudentDashboard() {
             <div className="text-center space-y-2">
               <BarChart3 className="w-12 h-12 text-accent mx-auto" />
               <h2 className="text-2xl font-bold">Canteen Busy Hours</h2>
-              <p className="text-muted-foreground">Plan your visit to avoid rush hours</p>
+              <p className="text-gray-300">Plan your visit to avoid rush hours</p>
             </div>
 
             <Card className="glass-card p-6">
@@ -281,7 +281,7 @@ export default function StudentDashboard() {
                         }>
                           {data.status}
                         </Badge>
-                        <span className="text-sm text-muted-foreground">{data.orders} orders</span>
+                        <span className="text-sm text-gray-300">{data.orders} orders</span>
                       </div>
                     </div>
                     <div className="w-full bg-white/10 rounded-full h-3">
@@ -329,7 +329,7 @@ export default function StudentDashboard() {
             <div className="text-center space-y-2">
               <div className="text-4xl mb-2">{selectedItem.image}</div>
               <h2 className="text-2xl font-bold">{selectedItem.name}</h2>
-              <p className="text-muted-foreground">{selectedItem.description}</p>
+              <p className="text-gray-300">{selectedItem.description}</p>
             </div>
 
             <Card className="glass-card p-6">
@@ -395,7 +395,7 @@ export default function StudentDashboard() {
             <div className="text-center space-y-2">
               <Clock className="w-12 h-12 text-primary mx-auto" />
               <h2 className="text-2xl font-bold">Choose Pickup Time</h2>
-              <p className="text-muted-foreground">When would you like to collect your order?</p>
+              <p className="text-gray-300">When would you like to collect your order?</p>
             </div>
 
             <Card className="glass-card p-6">
@@ -442,7 +442,7 @@ export default function StudentDashboard() {
             <div className="text-center space-y-2">
               <CreditCard className="w-12 h-12 text-primary mx-auto" />
               <h2 className="text-2xl font-bold">Payment</h2>
-              <p className="text-muted-foreground">Choose your payment method</p>
+              <p className="text-gray-300">Choose your payment method</p>
             </div>
 
             <Card className="glass-card p-6 space-y-4">
@@ -452,7 +452,7 @@ export default function StudentDashboard() {
                     <Wallet className="w-6 h-6 text-primary" />
                     <div>
                       <div className="font-medium">Campus Wallet</div>
-                      <div className="text-sm text-muted-foreground">Balance: <span className="text-black font-semibold">₹2,450</span></div>
+                      <div className="text-sm text-gray-300">Balance: <span className="text-black font-semibold">₹2,450</span></div>
                     </div>
                   </div>
                   <input type="radio" name="payment" defaultChecked className="text-primary" />
@@ -463,7 +463,7 @@ export default function StudentDashboard() {
                     <CreditCard className="w-6 h-6" />
                     <div>
                       <div className="font-medium">UPI Payment</div>
-                      <div className="text-sm text-muted-foreground">Google Pay, PhonePe, Paytm</div>
+                      <div className="text-sm text-gray-300">Google Pay, PhonePe, Paytm</div>
                     </div>
                   </div>
                   <input type="radio" name="payment" />
@@ -540,7 +540,7 @@ export default function StudentDashboard() {
               <CheckCircle className="w-12 h-12 text-success mx-auto" />
               <h2 className="text-2xl font-bold">Order Confirmed!</h2>
               <div className="text-primary text-xl font-bold">{tokenNumber}</div>
-              <p className="text-muted-foreground">Pickup at {selectedTime}</p>
+              <p className="text-gray-300">Pickup at {selectedTime}</p>
             </div>
 
             <Card className="glass-card p-6">
@@ -548,7 +548,7 @@ export default function StudentDashboard() {
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-medium">Order Progress</span>
-                    <span className="text-sm text-muted-foreground">{orderProgress}%</span>
+                    <span className="text-sm text-gray-300">{orderProgress}%</span>
                   </div>
                   <Progress value={orderProgress} className="h-3" />
                 </div>
@@ -565,7 +565,7 @@ export default function StudentDashboard() {
                       <div className={`w-4 h-4 rounded-full ${
                         step.completed ? 'bg-success' : 'bg-muted'
                       } transition-colors`} />
-                      <span className={step.completed ? 'text-success font-medium' : 'text-muted-foreground'}>
+                      <span className={step.completed ? 'text-success font-medium' : 'text-gray-300'}>
                         {step.status}
                       </span>
                     </div>
@@ -606,14 +606,14 @@ export default function StudentDashboard() {
             <div className="text-center space-y-2">
               <Gift className="w-12 h-12 text-accent mx-auto" />
               <h2 className="text-2xl font-bold">Loyalty Rewards</h2>
-              <p className="text-muted-foreground">Earn points with every order</p>
+              <p className="text-gray-300">Earn points with every order</p>
             </div>
 
             <Card className="glass-card p-6">
               <div className="space-y-6">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-primary mb-2">850 Points</div>
-                  <div className="text-sm text-muted-foreground">150 points to next reward</div>
+                  <div className="text-sm text-gray-300">150 points to next reward</div>
                   <Progress value={85} className="h-2 mt-2" />
                 </div>
 
@@ -628,7 +628,7 @@ export default function StudentDashboard() {
                     <div key={reward.name} className="flex items-center justify-between p-3 rounded-lg border border-white/20">
                       <div>
                         <div className="font-medium">{reward.name}</div>
-                        <div className="text-sm text-muted-foreground">{reward.points} points</div>
+                        <div className="text-sm text-gray-300">{reward.points} points</div>
                       </div>
                       <Button 
                         size="sm" 
@@ -703,7 +703,7 @@ export default function StudentDashboard() {
                   <Bell className="w-5 h-5 text-success" />
                   <div>
                     <div className="font-medium text-success">Order Ready!</div>
-                    <div className="text-sm text-muted-foreground">Token {tokenNumber} - Please collect your food</div>
+                    <div className="text-sm text-gray-300">Token {tokenNumber} - Please collect your food</div>
                   </div>
                 </div>
               </Card>

@@ -91,8 +91,8 @@ export default function AdminDashboard({ onBack }: AdminDashboardProps) {
       case 'pending': return 'bg-warning text-warning-foreground';
       case 'preparing': return 'bg-accent text-accent-foreground';
       case 'ready': return 'bg-success text-success-foreground';
-      case 'completed': return 'bg-muted text-muted-foreground';
-      default: return 'bg-muted text-muted-foreground';
+      case 'completed': return 'bg-slate-600 text-white';
+      default: return 'bg-slate-600 text-white';
     }
   };
 
