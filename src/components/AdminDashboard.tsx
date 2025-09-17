@@ -43,18 +43,20 @@ interface MenuItem {
 }
 
 const mockOrders: Order[] = [
-  { id: '#AB123', customer: 'Sarah M.', items: 'Grilled Chicken Bowl', total: 12.99, status: 'preparing', time: '12:35' },
-  { id: '#AB124', customer: 'John D.', items: 'BBQ Burger Combo', total: 14.99, status: 'pending', time: '12:37' },
-  { id: '#AB125', customer: 'Emma R.', items: 'Veggie Buddha Bowl', total: 10.99, status: 'ready', time: '12:30' },
-  { id: '#AB126', customer: 'Mike T.', items: 'Margherita Pizza', total: 8.99, status: 'completed', time: '12:25' },
-  { id: '#AB127', customer: 'Lisa K.', items: 'Chicken Wrap', total: 9.99, status: 'pending', time: '12:40' }
+  { id: '#AB123', customer: 'Sarah M.', items: 'Paneer Butter Masala Bowl', total: 190, status: 'preparing', time: '12:35' },
+  { id: '#AB124', customer: 'John D.', items: 'Aloo Tikki Burger Combo', total: 170, status: 'pending', time: '12:37' },
+  { id: '#AB125', customer: 'Emma R.', items: 'Veggie Buddha Bowl', total: 150, status: 'ready', time: '12:30' },
+  { id: '#AB126', customer: 'Mike T.', items: 'Dal Makhani Thali', total: 210, status: 'completed', time: '12:25' },
+  { id: '#AB127', customer: 'Lisa K.', items: 'Chole Bhature (Special Offer)', total: 110, status: 'pending', time: '12:40' }
 ];
 
 const mockMenuItems: MenuItem[] = [
-  { id: '1', name: 'Grilled Chicken Bowl', category: 'Mains', price: 12.99, stock: 25, lowStock: false },
-  { id: '2', name: 'Veggie Buddha Bowl', category: 'Healthy', price: 10.99, stock: 8, lowStock: true },
-  { id: '3', name: 'BBQ Burger Combo', category: 'Burgers', price: 14.99, stock: 15, lowStock: false },
-  { id: '4', name: 'Margherita Pizza', category: 'Pizza', price: 8.99, stock: 3, lowStock: true }
+  { id: '1', name: 'Paneer Butter Masala Bowl', category: 'Mains', price: 180, stock: 25, lowStock: false },
+  { id: '2', name: 'Veggie Buddha Bowl', category: 'Healthy', price: 140, stock: 8, lowStock: true },
+  { id: '3', name: 'Aloo Tikki Burger Combo', category: 'Burgers', price: 160, stock: 15, lowStock: false },
+  { id: '4', name: 'Dal Makhani Thali', category: 'Thali', price: 200, stock: 12, lowStock: false },
+  { id: '5', name: 'Chole Bhature', category: 'Street Food', price: 100, stock: 3, lowStock: true },
+  { id: '6', name: 'Margherita Pizza', category: 'Pizza', price: 120, stock: 5, lowStock: true }
 ];
 
 export default function AdminDashboard({ onBack }: AdminDashboardProps) {
@@ -107,7 +109,7 @@ export default function AdminDashboard({ onBack }: AdminDashboardProps) {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 { title: 'Active Orders', value: '12', icon: Clock, color: 'text-primary' },
-                { title: 'Daily Revenue', value: '$456', icon: DollarSign, color: 'text-success' },
+                { title: 'Daily Revenue', value: '₹8,240', icon: DollarSign, color: 'text-success' },
                 { title: 'Customers', value: '89', icon: Users, color: 'text-accent' },
                 { title: 'Avg Time', value: '18min', icon: TrendingUp, color: 'text-secondary' }
               ].map((stat, index) => (
@@ -151,7 +153,7 @@ export default function AdminDashboard({ onBack }: AdminDashboardProps) {
                       <div className="text-sm text-muted-foreground">{order.customer} • {order.items}</div>
                     </div>
                     <div className="text-right">
-                      <div className="font-bold">${order.total}</div>
+                      <div className="font-bold">₹{order.total}</div>
                       <Badge className={`text-xs ${getStatusColor(order.status)}`}>
                         {order.status}
                       </Badge>
@@ -211,7 +213,7 @@ export default function AdminDashboard({ onBack }: AdminDashboardProps) {
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="font-bold text-xl text-primary">${order.total}</div>
+                        <div className="font-bold text-xl text-primary">₹{order.total}</div>
                         <Badge className={`${getStatusColor(order.status)}`}>
                           {order.status}
                         </Badge>
@@ -304,10 +306,10 @@ export default function AdminDashboard({ onBack }: AdminDashboardProps) {
               <h3 className="text-lg font-semibold mb-4">Popular Items Today</h3>
               <div className="space-y-3">
                 {[
-                  { name: 'BBQ Burger Combo', sales: 28, revenue: 419.72 },
-                  { name: 'Grilled Chicken Bowl', sales: 24, revenue: 311.76 },
-                  { name: 'Veggie Buddha Bowl', sales: 18, revenue: 197.82 },
-                  { name: 'Margherita Pizza', sales: 15, revenue: 134.85 }
+                  { name: 'Dal Makhani Thali', sales: 32, revenue: 6400 },
+                  { name: 'Paneer Butter Masala Bowl', sales: 28, revenue: 5040 },
+                  { name: 'Aloo Tikki Burger Combo', sales: 22, revenue: 3520 },
+                  { name: 'Chole Bhature (Special)', sales: 18, revenue: 1980 }
                 ].map((item, index) => (
                   <div key={item.name} className="flex items-center justify-between p-3 rounded-lg border border-white/20">
                     <div>
@@ -315,7 +317,7 @@ export default function AdminDashboard({ onBack }: AdminDashboardProps) {
                       <div className="text-sm text-muted-foreground">{item.sales} orders</div>
                     </div>
                     <div className="text-right">
-                      <div className="font-bold text-primary">${item.revenue}</div>
+                      <div className="font-bold text-primary">₹{item.revenue}</div>
                       <Badge className="text-xs bg-success/20 text-success">
                         #{index + 1}
                       </Badge>
@@ -396,7 +398,7 @@ export default function AdminDashboard({ onBack }: AdminDashboardProps) {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-xl font-bold text-primary mb-2">${item.price}</div>
+                      <div className="text-xl font-bold text-primary mb-2">₹{item.price}</div>
                       <Button size="sm" variant="outline" className="border-white/30 hover:bg-white/10">
                         <Edit className="w-4 h-4" />
                       </Button>

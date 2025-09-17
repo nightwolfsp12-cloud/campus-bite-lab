@@ -1,7 +1,8 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Smartphone, Users, TrendingUp } from 'lucide-react';
+import { Smartphone, Users, TrendingUp, Wallet, PhoneCall } from 'lucide-react';
 import heroFoodTray from '@/assets/hero-food-tray.jpg';
+import FeaturesSection from './FeaturesSection';
 
 interface HeroSectionProps {
   onStudentClick: () => void;
@@ -9,35 +10,69 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ onStudentClick, onAdminClick }: HeroSectionProps) {
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 300], [0, -50]);
+  const y2 = useTransform(scrollY, [0, 300], [0, -100]);
+  const y3 = useTransform(scrollY, [0, 300], [0, -25]);
+
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-4">
-      {/* Floating Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-20 left-20 w-32 h-32 bg-primary/20 rounded-full blur-xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{ duration: 4, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-20 w-48 h-48 bg-secondary/20 rounded-full blur-xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.4, 0.7, 0.4],
-          }}
-          transition={{ duration: 5, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-10 w-24 h-24 bg-accent/30 rounded-full blur-xl"
-          animate={{
-            y: [-20, 20, -20],
-            opacity: [0.2, 0.5, 0.2],
-          }}
-          transition={{ duration: 6, repeat: Infinity }}
-        />
-      </div>
+    <>
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-4">
+        {/* Enhanced Floating Background Elements with Parallax */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            style={{ y: y1 }}
+            className="absolute top-20 left-20 w-32 h-32 bg-primary/20 rounded-full blur-xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{ duration: 4, repeat: Infinity }}
+          />
+          <motion.div
+            style={{ y: y2 }}
+            className="absolute bottom-20 right-20 w-48 h-48 bg-secondary/20 rounded-full blur-xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.4, 0.7, 0.4],
+            }}
+            transition={{ duration: 5, repeat: Infinity }}
+          />
+          <motion.div
+            style={{ y: y3 }}
+            className="absolute top-1/2 left-10 w-24 h-24 bg-accent/30 rounded-full blur-xl"
+            animate={{
+              y: [-20, 20, -20],
+              opacity: [0.2, 0.5, 0.2],
+            }}
+            transition={{ duration: 6, repeat: Infinity }}
+          />
+          
+          {/* Additional 3D animated elements */}
+          <motion.div
+            style={{ y: y1 }}
+            className="absolute top-1/4 right-1/3 w-16 h-16"
+            animate={{
+              rotateY: [0, 360],
+              rotateX: [0, 180, 0],
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+          >
+            <Smartphone className="w-full h-full text-primary/40" />
+          </motion.div>
+          
+          <motion.div
+            style={{ y: y2 }}
+            className="absolute bottom-1/3 left-1/4 w-20 h-20"
+            animate={{
+              rotate: [0, 360],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Wallet className="w-full h-full text-secondary/40" />
+          </motion.div>
+        </div>
 
       <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
         {/* Left Content */}
@@ -169,5 +204,9 @@ export default function HeroSection({ onStudentClick, onAdminClick }: HeroSectio
         </motion.div>
       </div>
     </section>
+
+    {/* Features Section */}
+    <FeaturesSection />
+    </>
   );
 }

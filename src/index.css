@@ -163,4 +163,11 @@ All colors MUST be HSL.
   .animate-slide-up {
     animation: slide-up 0.8s ease-out forwards;
   }
+  
+  @keyframes confetti-fall {
+    to {
+      transform: translateY(100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
 }

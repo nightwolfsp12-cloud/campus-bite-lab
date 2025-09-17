@@ -37,40 +37,60 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   {
     id: '1',
-    name: 'Grilled Chicken Bowl',
-    price: 12.99,
+    name: 'Paneer Butter Masala Bowl',
+    price: 180,
     rating: 4.8,
-    description: 'Healthy grilled chicken with quinoa and vegetables',
+    description: 'Rich paneer in creamy tomato gravy with rice',
     category: 'Mains',
-    image: '🍗',
+    image: '🍛',
     isSpecial: true
   },
   {
     id: '2',
     name: 'Veggie Buddha Bowl',
-    price: 10.99,
+    price: 140,
     rating: 4.6,
-    description: 'Fresh vegetables with tahini dressing',
+    description: 'Fresh seasonal vegetables with quinoa and tahini',
     category: 'Healthy',
     image: '🥗'
   },
   {
     id: '3',
-    name: 'BBQ Burger Combo',
-    price: 14.99,
+    name: 'Aloo Tikki Burger Combo',
+    price: 160,
     rating: 4.7,
-    description: 'Juicy beef burger with fries and drink',
+    description: 'Crispy potato patty burger with masala fries',
     category: 'Burgers',
     image: '🍔'
   },
   {
     id: '4',
     name: 'Margherita Pizza Slice',
-    price: 8.99,
+    price: 120,
     rating: 4.5,
-    description: 'Fresh mozzarella and basil',
+    description: 'Fresh mozzarella, basil and tomato sauce',
     category: 'Pizza',
     image: '🍕'
+  },
+  {
+    id: '5',
+    name: 'Dal Makhani Thali',
+    price: 200,
+    rating: 4.9,
+    description: "Today's Special: Creamy dal with rice, roti & pickle",
+    category: 'Thali',
+    image: '🍽️',
+    isSpecial: true
+  },
+  {
+    id: '6',
+    name: 'Chole Bhature',
+    price: 100,
+    rating: 4.4,
+    description: "Today's Offer: Spicy chickpeas with fluffy bhature (50% OFF)",
+    category: 'Street Food',
+    image: '🫓',
+    isSpecial: true
   }
 ];
 
@@ -114,9 +134,34 @@ export default function StudentApp({ onBack }: StudentAppProps) {
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <div className="text-center space-y-2">
+            <div className="text-center space-y-4 mb-8">
               <h2 className="text-3xl font-bold gradient-text">Today's Menu</h2>
-              <p className="text-muted-foreground">Fresh meals made daily</p>
+              <p className="text-muted-foreground">Fresh vegetarian meals made daily</p>
+              
+              {/* Today's Specials Banner */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="glass-card p-4 border-2 border-secondary/50"
+              >
+                <h3 className="text-lg font-semibold text-secondary mb-2">🌟 Today's Highlights</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg">🍽️</span>
+                    <div>
+                      <div className="font-medium">Special Dish: Dal Makhani Thali</div>
+                      <div className="text-muted-foreground">Chef's signature recipe</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg">🎯</span>
+                    <div>
+                      <div className="font-medium">Special Offer: Chole Bhature</div>
+                      <div className="text-accent font-semibold">50% OFF - Only ₹100!</div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
             </div>
 
             <div className="grid gap-4">
@@ -150,7 +195,7 @@ export default function StudentApp({ onBack }: StudentAppProps) {
                             <span className="text-sm font-medium">{item.rating}</span>
                           </div>
                           <span className="text-xl font-bold text-primary">
-                            ${item.price}
+                            ₹{item.price}
                           </span>
                         </div>
                       </div>
@@ -202,8 +247,8 @@ export default function StudentApp({ onBack }: StudentAppProps) {
                 </div>
 
                 <div className="space-y-3">
-                  <span className="font-medium">Add-ons</span>
-                  {['Extra Cheese (+$1.50)', 'Avocado (+$2.00)', 'Bacon (+$2.50)'].map((addon) => (
+                  <span className="font-medium">Vegetarian Add-ons</span>
+                  {['Extra Paneer (+₹30)', 'Fresh Mint Chutney (+₹15)', 'Extra Roti (+₹20)'].map((addon) => (
                     <div key={addon} className="flex items-center justify-between p-2 rounded-lg border border-white/20">
                       <span className="text-sm">{addon}</span>
                       <input type="checkbox" className="rounded" />
@@ -214,7 +259,7 @@ export default function StudentApp({ onBack }: StudentAppProps) {
                 <div className="border-t border-white/20 pt-4">
                   <div className="flex items-center justify-between text-xl font-bold">
                     <span>Total</span>
-                    <span className="text-primary">${(selectedItem.price * quantity).toFixed(2)}</span>
+                    <span className="text-primary">₹{(selectedItem.price * quantity)}</span>
                   </div>
                 </div>
 
@@ -296,7 +341,7 @@ export default function StudentApp({ onBack }: StudentAppProps) {
                     <Wallet className="w-6 h-6 text-primary" />
                     <div>
                       <div className="font-medium">Campus Wallet</div>
-                      <div className="text-sm text-muted-foreground">Balance: $45.80</div>
+                      <div className="text-sm text-muted-foreground">Balance: ₹2,450</div>
                     </div>
                   </div>
                   <input type="radio" name="payment" defaultChecked className="text-primary" />
@@ -318,27 +363,57 @@ export default function StudentApp({ onBack }: StudentAppProps) {
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
                     <span>Subtotal</span>
-                    <span>${selectedItem ? (selectedItem.price * quantity).toFixed(2) : '0.00'}</span>
+                    <span>₹{selectedItem ? (selectedItem.price * quantity) : '0'}</span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span>Service Fee</span>
-                    <span>$0.99</span>
+                    <span>₹10</span>
                   </div>
                   <div className="flex justify-between text-lg font-bold border-t border-white/20 pt-2">
                     <span>Total</span>
                     <span className="text-primary">
-                      ${selectedItem ? (selectedItem.price * quantity + 0.99).toFixed(2) : '0.99'}
+                      ₹{selectedItem ? (selectedItem.price * quantity + 10) : '10'}
                     </span>
                   </div>
                 </div>
               </div>
 
-              <Button 
-                className="w-full bg-primary hover:bg-primary-glow btn-interactive"
-                onClick={handleStartTracking}
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                Place Order
-              </Button>
+                <Button 
+                  className="w-full bg-primary hover:bg-primary-glow btn-interactive"
+                  onClick={() => {
+                    // 3D Celebration Animation
+                    const celebration = () => {
+                      // Create confetti effect
+                      for (let i = 0; i < 50; i++) {
+                        const confetti = document.createElement('div');
+                        confetti.style.cssText = `
+                          position: fixed;
+                          width: 10px;
+                          height: 10px;
+                          background: hsl(${Math.random() * 360}, 70%, 60%);
+                          left: ${Math.random() * 100}vw;
+                          top: -10px;
+                          border-radius: 50%;
+                          pointer-events: none;
+                          z-index: 9999;
+                          animation: confetti-fall 3s linear forwards;
+                        `;
+                        document.body.appendChild(confetti);
+                        setTimeout(() => confetti.remove(), 3000);
+                      }
+                    };
+                    
+                    celebration();
+                    handleStartTracking();
+                  }}
+                >
+                  🎉 Place Order
+                </Button>
+              </motion.div>
             </Card>
           </motion.div>
         );
